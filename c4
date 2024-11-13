@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>PHP Programs</title>
+    <style>
+        body { font-family: Arial, sans-serif; }
+        .section { margin-bottom: 20px; border: 1px solid #ddd; padding: 10px; }
+        .section h2 { margin: 0; cursor: pointer; }
+        .content { display: none; margin-top: 10px; }
+    </style>
+    <script>
+        function toggleContent(id) {
+            var content = document.getElementById(id);
+            content.style.display = content.style.display === 'block' ? 'none' : 'block';
+        }
+    </script>
+</head>
+<body>
+    <h1>PHP Programs</h1>
+
+    <!-- 1. Print “Hello World” Using echo -->
+    <div class="section">
+        <h2 onclick="toggleContent('program1')">1. Print “Hello World”</h2>
+        <div class="content" id="program1">
+            <?php echo "Hello World"; ?>
+        </div>
+    </div>
+
+    <!-- 2. Print “Hello PHP” Using Variable -->
+    <div class="section">
+        <h2 onclick="toggleContent('program2')">2. Print “Hello PHP” Using Variable</h2>
+        <div class="content" id="program2">
+            <form method="POST">
+                <input type="submit" name="submit2" value="Show">
+            </form>
+            <?php
+            if (isset($_POST['submit2'])) {
+                $message = "Hello PHP";
+                echo $message;
+            }
+            ?>
+        </div>
+    </div>
+
+    <!-- 3. Check Student Grade Based on Marks -->
+    <div class="section">
+        <h2 onclick="toggleContent('program3')">3. Check Student Grade Based on Marks</h2>
+        <div class="content" id="program3">
+            <form method="POST">
+                Enter Marks: <input type="number" name="marks" required>
+                <input type="submit" name="submit3" value="Check Grade">
+            </form>
+            <?php
+            if (isset($_POST['submit3'])) {
+                $marks = $_POST['marks'];
+                if ($marks >= 60) {
+                    echo "Grade: First Division";
+                } elseif ($marks >= 45) {
+                    echo "Grade: Second Division";
+                } elseif ($marks >= 33) {
+                    echo "Grade: Third Division";
+                } else {
+                    echo "Grade: Fail";
+                }
+            }
+            ?>
+        </div>
+    </div>
+
+    <!-- 4. Factorial Program Using For Loop -->
+    <div class="section">
+        <h2 onclick="toggleContent('program4')">4. Factorial Program Using For Loop</h2>
+        <div class="content" id="program4">
+            <form method="POST">
+                Enter a Number: <input type="number" name="num4" required>
+                <input type="submit" name="submit4" value="Find Factorial">
+            </form>
+            <?php
+            if (isset($_POST['submit4'])) {
+                $num = $_POST['num4'];
+                $factorial = 1;
+                for ($i = 1; $i <= $num; $i++) {
+                    $factorial *= $i;
+                }
+                echo "Factorial of $num is $factorial";
+            }
+            ?>
+        </div>
+    </div>
+
+    <!-- 5. Check if Number is Positive, Negative, or Zero -->
+    <div class="section">
+        <h2 onclick="toggleContent('program5')">5. Check if Number is Positive, Negative, or Zero</h2>
+        <div class="content" id="program5">
+            <form method="POST">
+                Enter a Number: <input type="number" name="num5" required>
+                <input type="submit" name="submit5" value="Check Number">
+            </form>
+            <?php
+            if (isset($_POST['submit5'])) {
+                $num = $_POST['num5'];
+                if ($num > 0) {
+                    echo "The number is Positive.";
+                } elseif ($num < 0) {
+                    echo "The number is Negative.";
+                } else {
+                    echo "The number is Zero.";
+                }
+            }
+            ?>
+        </div>
+    </div>
+
+    <!-- 6. Add Two Numbers -->
+    <div class="section">
+        <h2 onclick="toggleContent('program6')">6. Add Two Numbers Using Variables</h2>
+        <div class="content" id="program6">
+            <form method="POST">
+                Number 1: <input type="number" name="num6_1" required><br>
+                Number 2: <input type="number" name="num6_2" required><br>
+                <input type="submit" name="submit6" value="Add">
+            </form>
+            <?php
+            if (isset($_POST['submit6'])) {
+                $num1 = $_POST['num6_1'];
+                $num2 = $_POST['num6_2'];
+                echo "Sum: " . ($num1 + $num2);
+            }
+            ?>
+        </div>
+    </div>
+
+    <!-- 7. Find the Area of a Triangle -->
+    <div class="section">
+        <h2 onclick="toggleContent('program7')">7. Find the Area of a Triangle</h2>
+        <div class="content" id="program7">
+            <form method="POST">
+                Base: <input type="number" name="base" required><br>
+                Height: <input type="number" name="height" required><br>
+                <input type="submit" name="submit7" value="Find Area">
+            </form>
+            <?php
+            if (isset($_POST['submit7'])) {
+                $base = $_POST['base'];
+                $height = $_POST['height'];
+                echo "Area of the triangle: " . (0.5 * $base * $height);
+            }
+            ?>
+        </div>
+    </div>
+
+    <!-- 8. Check Divisibility -->
+    <div class="section">
+        <h2 onclick="toggleContent('program8')">8. Check Divisibility</h2>
+        <div class="content" id="program8">
+            <form method="POST">
+                Number: <input type="number" name="num8" required><br>
+                Divisor: <input type="number" name="divisor" required><br>
+                <input type="submit" name="submit8" value="Check">
+            </form>
+            <?php
+            if (isset($_POST['submit8'])) {
+                $num = $_POST['num8'];
+                $divisor = $_POST['divisor'];
+                echo ($num % $divisor === 0) ? "$num is divisible by $divisor." : "$num is not divisible by $divisor.";
+            }
+            ?>
+        </div>
+    </div>
+
+    <!-- More programs can be appended similarly -->
+
+</body>
+</html>
